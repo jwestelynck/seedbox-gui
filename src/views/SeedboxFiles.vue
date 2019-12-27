@@ -1,5 +1,5 @@
 <template>
-  <div class="seedboxFiles">
+  <div id="main" class="seedboxFiles">
     <img alt="Vue logo" src="../assets/logo.png">
     <tree :tree-data="tree"></tree>
   </div>
