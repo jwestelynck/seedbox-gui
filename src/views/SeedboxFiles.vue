@@ -1,7 +1,9 @@
 <template>
-  <div id="main" class="seedboxFiles">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <tree :tree-data="tree"></tree>
+  <div id='content'>
+    <div id="header">
+      Seedbox Files
+    </div>
+    <tree :tree-data="content"></tree>
   </div>
 </template>
 
@@ -14,7 +16,8 @@ export default {
   name: 'seedboxFiles',
   data: function() {
     return {
-      tree: {}
+      content: {},
+      parents : {}
     }
   },
   components: {
@@ -23,7 +26,11 @@ export default {
   mounted(){
       axios
       .get('https://kimsuffi1-api.westelynck.fr/cgi-bin/getPathContent.py')
-      .then(response => (this.tree = response['data']))
+      .then(response => (
+        this.content = response['data']['content'],
+        this.parents = response['data']['parents']
+        )
+      )
     }
 }
 </script>
