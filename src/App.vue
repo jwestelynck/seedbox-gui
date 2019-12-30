@@ -120,9 +120,10 @@ div.tree {
 div.node {
   padding-top: 1.5vh;
   padding-bottom: 1.5vh;
-  padding-left: 1.5vw;
+  padding-left: 2.75em;
   padding-right: 1vw;
-  width: 60vw;
+  width: 83vw;
+  font-weight:500;
 }
 
 div.directory:hover {
@@ -133,14 +134,14 @@ div.directory:hover {
 
 div.directory {
   background: url('assets/folder.svg') no-repeat;
-  background-size: auto 1.5vh;
+  background-size: auto 1.5em;
   background-position: 0.5vw 50%;
   fill: DarkBlue;
 }
 
 div.file {
   background: url('assets/file.svg') no-repeat;
-  background-size: auto 1.5vh;
+  background-size: auto 1.5em;
   background-position: 0.5vw 50%;
 }
 
@@ -156,10 +157,21 @@ div.line1{
 }
 img.download {
   height: 1.25em;
-  margin-left: 0.5vw;
+  margin-right: 1vw;
 }
 img.download:hover {
   cursor: pointer;
+}
+
+.filesize {
+  color:rgb(3, 3, 73);
+  font-weight:500;
+  margin-right: 1vw;
+}
+.searchField {
+  font-weight:500;
+  margin-bottom: 1vh;
+  margin-left: 1vw;
 }
 
 </style>
