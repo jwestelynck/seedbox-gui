@@ -87,7 +87,7 @@ div.left {
 
 div.tree {
   float:left;
-  height: 86vh;
+  height: 80vh;
   padding-left: 2vw;
   padding-top: 2vh;
   padding-bottom: 2vh;
@@ -116,4 +116,50 @@ div.tree {
 #main {
   float:left;
 }
+
+div.node {
+  padding-top: 1.5vh;
+  padding-bottom: 1.5vh;
+  padding-left: 1.5vw;
+  padding-right: 1vw;
+  width: 60vw;
+}
+
+div.directory:hover {
+  background-color: #E8E8E8;
+  cursor:pointer;
+  color:darkblue;
+}
+
+div.directory {
+  background: url('assets/folder.svg') no-repeat;
+  background-size: auto 1.5vh;
+  background-position: 0.5vw 50%;
+  fill: DarkBlue;
+}
+
+div.file {
+  background: url('assets/file.svg') no-repeat;
+  background-size: auto 1.5vh;
+  background-position: 0.5vw 50%;
+}
+
+div.line0{
+  background-color: #FAFAFA;
+}
+
+div.line1{
+  background-color: #F3F3F3;
+}
+.right{
+  float:right
+}
+img.download {
+  height: 1.25em;
+  margin-left: 0.5vw;
+}
+img.download:hover {
+  cursor: pointer;
+}
+
 </style>
