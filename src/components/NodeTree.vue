@@ -1,8 +1,13 @@
 <template>
   <div v-bind:class='id'>
-    <input v-bind:class="['searchField']" v-model="searchString" placeholder="Search Field" />
-    <div v-for="(elt,name) in node" class="node" v-bind:class="[elt.type,switchClass()]"  v-on:click="updateTree(elt)" v-if='filter(name)'>
-      <span>{{name}}</span>
+    <div class="FileMenu">
+      <div class='FileMenuName' v-on:click="ReorderByName()" >Name</div>
+      <input v-bind:class="['searchField']" v-model="searchString" placeholder="Search Field" />
+      <span class='FileMenuActions'>Actions</span>
+      <div v-on:click="ReorderBySize()" class='FileMenuSize'>Size</div>
+    </div>
+    <div v-for="elt in node" class="node" v-bind:class="[elt.type,switchClass()]"  v-on:click="updateTree(elt)" v-if='filter(elt.name)'>
+      <span>{{elt.name}}</span>
       <a v-if="elt.type == 'file'" v-bind:href="elt.link" class='right'>
         <img class="download" alt='Download' src='../assets/download.svg' />
       </a>
@@ -20,20 +25,39 @@ export default {
   data: function() {
     return {
       scid : 1,
-      searchString: ""
+      searchString: "",
+      nextNameOrder: "des",
+      nextSizeOrder: "asc"
     }
   },
   props: {
-    node: Object,
+    node: Array,
     id: String
   },
   methods: {
+    ReorderByName: function(){
+      this.$parent.$parent.reorder('name',this.nextNameOrder)
+      if(this.nextNameOrder == 'asc'){
+        this.nextNameOrder = 'des';
+      }else{
+        this.nextNameOrder = 'asc';
+      }
+    },
+    ReorderBySize: function(){
+      this.$parent.$parent.reorder('size',this.nextSizeOrder)
+      if(this.nextSizeOrder == 'asc'){
+        this.nextSizeOrder = 'des';
+      }else{
+        this.nextSizeOrder = 'asc';
+      }
+    },
     filter: function(name){
       var re = null;
       if(this.searchString == ""){
         re = new RegExp('.*', 'i');
       }else{
-        re = new RegExp('.*'+this.searchString+'.*', 'i');
+        var tmp = this.searchString.replace('\.','\\\.')
+        re = new RegExp('.*'+tmp+'.*', 'i');
       }
       var result = name.match(re);
       if(result == null){
@@ -61,7 +85,7 @@ export default {
     remoteDL: function(elt,event){
       alert(elt)
       axios
-        .get("http://XXXX:5000/webapi/auth.cgi?api=SYNO.API.Auth&version=2&method=login&account=admin&passwd=AkzEak9%23&session=DownloadStation&format=cookie",)
+        .get("http://78.221.0.1:5000/webapi/auth.cgi?api=SYNO.API.Auth&version=2&method=login&account=admin&passwd=AkzEak9%23&session=DownloadStation&format=cookie",)
         .then(alert(response))
     }
   }

@@ -174,4 +174,33 @@ img.download:hover {
   margin-left: 1vw;
 }
 
+.FileMenu {
+  padding-top: 1.5vh;
+  padding-bottom: 1.5vh;
+  padding-left: 2.75em;
+  padding-right: 1vw;
+  width: 83vw;
+  font-weight: bold;
+  background-color:#1e1e1e;
+  color:#E0E0E0;
+}
+
+.FileMenuName {
+  float:left;  
+}
+
+.FileMenuName:hover {
+  text-decoration:underline;
+}
+
+.FileMenuSize {
+  float:right;  
+  padding-right:1vw;
+}
+
+.FileMenuActions {
+  padding-left: 1.15vw;
+  padding-right: 1.15vw;
+  float:right;    
+}
 </style>

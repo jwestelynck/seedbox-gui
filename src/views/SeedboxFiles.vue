@@ -18,7 +18,7 @@ export default {
   name: 'seedboxFiles',
   data: function() {
     return {
-      content: {},
+      content: [],
       parents : {}
     }
   },
@@ -36,6 +36,52 @@ export default {
       )
     },
   methods: {
+    reorder: function(type,order){
+
+      function nameasc(a,b){
+        if(a.name < b.name)
+          return -1;
+        if(a.name > b.name)
+          return 1;
+        return 0;
+      }
+      
+      function namedes(a,b){
+        if(a.name < b.name)
+          return -1;
+        if(a.name > b.name)
+          return -1;
+        return 0;
+      }
+      
+      function sizeasc(a,b){
+        if(a.size < b.size)
+          return -1;
+        if(a.size > b.size)
+          return 1;
+        return 0;
+      }
+      
+      function sizedes(a,b){
+        if(a.size < b.size)
+          return -1;
+        if(a.size > b.size)
+          return -1;
+        return 0;
+      }
+
+      if(type == 'name' && order == 'asc'){
+        this.content.sort(nameasc)
+      }else if(type == 'name' && order == 'des'){
+        this.content.sort(namedes)
+      }else if(type == 'size' && order == 'des'){
+        this.content.sort(namedes)
+      }else if(type == 'size' && order == 'des'){
+        this.content.sort(namedes)
+      }
+      console.log(type);
+      console.log(order);
+    },
     updateTree: function (elt,event){
       if (elt['type'] == 'directory') {
         axios
