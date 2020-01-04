@@ -1,6 +1,6 @@
 <template>
   <div class="parent-tree">
-    <div v-on:click="updateTree('Home')">Home</div>
+    <div class='parentHome' v-on:click="updateTree('Home')"></div>
     <section v-for="(elt,name) in parents">
       <div class='separator'>/</div>
       <div v-on:click="updateTree(elt)">{{name}}</div>
@@ -50,7 +50,8 @@ div.parent-tree div:hover{
 }
 
 div.parent-tree section{
-  float:left;
+  float:left;  
+  margin-top: 0.75em;
 }
 div.parent-tree .separator{
   height: 1em;

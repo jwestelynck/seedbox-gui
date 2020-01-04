@@ -48,7 +48,7 @@ export default {
       
       function namedes(a,b){
         if(a.name < b.name)
-          return -1;
+          return 1;
         if(a.name > b.name)
           return -1;
         return 0;
@@ -64,23 +64,25 @@ export default {
       
       function sizedes(a,b){
         if(a.size < b.size)
-          return -1;
+          return 1;
         if(a.size > b.size)
           return -1;
         return 0;
       }
 
       if(type == 'name' && order == 'asc'){
-        this.content.sort(nameasc)
+        this.content.sort(nameasc);
+        console.log("nameasc");
       }else if(type == 'name' && order == 'des'){
-        this.content.sort(namedes)
+        this.content.sort(namedes);
+        console.log("namedes");
+      }else if(type == 'size' && order == 'asc'){
+        this.content.sort(sizeasc);
+        console.log("sizeasc");
       }else if(type == 'size' && order == 'des'){
-        this.content.sort(namedes)
-      }else if(type == 'size' && order == 'des'){
-        this.content.sort(namedes)
+        this.content.sort(sizedes);
+        console.log("sizedes");
       }
-      console.log(type);
-      console.log(order);
     },
     updateTree: function (elt,event){
       if (elt['type'] == 'directory') {

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 25" width="50" height="25">
+    <defs>
+        <path d="M 0 25L25 0 L 50 25 Z" id="asc">
+        </path>
+    </defs>
+    <g>
+        <g>
+            <use xlink:href="#asc" opacity="1" fill="#1c2bc9" fill-opacity="1">
+            </use>
+        </g>
+    </g>
+</svg>

@@ -168,9 +168,15 @@ img.download:hover {
   font-weight:500;
   margin-right: 1vw;
 }
+
+.filesizeDir{
+  color:rgb(3, 3, 73);
+  font-weight:500;
+  margin-right: 4.5vw;
+}
+
 .searchField {
   font-weight:500;
-  margin-bottom: 1vh;
   margin-left: 1vw;
 }
 
@@ -190,10 +196,11 @@ img.download:hover {
 }
 
 .FileMenuName:hover {
-  text-decoration:underline;
+  cursor:pointer;
 }
 
-.FileMenuSize {
+.FileMenuSize {  
+  cursor:pointer;
   float:right;  
   padding-right:1vw;
 }
@@ -202,5 +209,51 @@ img.download:hover {
   padding-left: 1.15vw;
   padding-right: 1.15vw;
   float:right;    
+}
+
+.sort {
+  height:1em;
+  width:1em;
+  margin-left: 0.2em;
+}
+.sortasc{
+  height: 0.5em;
+  width: 1em;
+  mask: url('assets/asc.svg') no-repeat;
+  background-color: #E0E0E0;
+  mask-size: 0.6em auto;
+  mask-position:bottom;
+}
+
+.sortdes{
+  height: 0.5em;
+  width: 1em;
+  mask: url('assets/des.svg') no-repeat;
+  background-color: #E0E0E0;
+  mask-size: 0.6em auto;
+  mask-position:bottom;
+}
+
+.sortasc:hover{
+  background-color: red;
+  cursor:pointer;
+}
+
+.sortdes:hover{
+  background-color: red;
+  cursor:pointer;
+}
+
+.parentHome{
+  height: 2.5em;
+  width: 2.5em;
+  mask: url('assets/home.svg') no-repeat;
+  background-color: #1e1e1e;;
+  mask-size:  2.5em auto;
+  mask-position:bottom;
+}
+.parentHome:hover{
+  cursor:pointer;
+  background-color:DarkBlue;
 }
 </style>

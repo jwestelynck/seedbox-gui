@@ -1,10 +1,22 @@
 <template>
   <div v-bind:class='id'>
     <div class="FileMenu">
-      <div class='FileMenuName' v-on:click="ReorderByName()" >Name</div>
+      <div class='FileMenuName' v-on:click="ReorderByName()" >
+        Name
+        <div class='sort right'>
+          <div class='sortasc' v-on:click="ReorderByName('asc')"></div>
+          <div class='sortdes' v-on:click="ReorderByName('des')"></div>
+        </div>
+      </div>
       <input v-bind:class="['searchField']" v-model="searchString" placeholder="Search Field" />
       <span class='FileMenuActions'>Actions</span>
-      <div v-on:click="ReorderBySize()" class='FileMenuSize'>Size</div>
+      <div v-on:click="ReorderBySize()" class='FileMenuSize'>
+        Size
+        <div class='sort right'>
+          <div class='sortasc' v-on:click="ReorderBySize('asc')"></div>
+          <div class='sortdes' v-on:click="ReorderBySize('des')"></div>
+      </div>
+      </div>
     </div>
     <div v-for="elt in node" class="node" v-bind:class="[elt.type,switchClass()]"  v-on:click="updateTree(elt)" v-if='filter(elt.name)'>
       <span>{{elt.name}}</span>
@@ -13,6 +25,7 @@
       </a>
       <img  v-if="elt.type == 'file'" class="right download" alt='Remote Download' src='../assets/remote-download.svg' v-on:click="remoteDL(elt)"/>
       <span v-if="elt.type == 'file'" v-bind:class="['filesize','right']">{{fileConvertSize(elt.size)}}</span>
+      <span v-if="elt.type == 'directory'" v-bind:class="['filesizeDir','right']">{{fileConvertSize(elt.size)}}</span>
     </div>
   </div>
 </template>
@@ -25,9 +38,7 @@ export default {
   data: function() {
     return {
       scid : 1,
-      searchString: "",
-      nextNameOrder: "des",
-      nextSizeOrder: "asc"
+      searchString: ""
     }
   },
   props: {
@@ -35,21 +46,11 @@ export default {
     id: String
   },
   methods: {
-    ReorderByName: function(){
-      this.$parent.$parent.reorder('name',this.nextNameOrder)
-      if(this.nextNameOrder == 'asc'){
-        this.nextNameOrder = 'des';
-      }else{
-        this.nextNameOrder = 'asc';
-      }
+    ReorderByName: function(order){
+      this.$parent.$parent.reorder('name',order)
     },
-    ReorderBySize: function(){
-      this.$parent.$parent.reorder('size',this.nextSizeOrder)
-      if(this.nextSizeOrder == 'asc'){
-        this.nextSizeOrder = 'des';
-      }else{
-        this.nextSizeOrder = 'asc';
-      }
+    ReorderBySize: function(order){
+      this.$parent.$parent.reorder('size',order)
     },
     filter: function(name){
       var re = null;
